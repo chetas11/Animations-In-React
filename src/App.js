@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, {useState} from "react";
+import ReactDOM from "react-dom";
 
-class App extends Component{
-    render(){
+const App = () => {
         return(
             <div className="App">
                 <h1>Welcome</h1>
             </div>
-        );
-    }
+        );   
 }
 
-export default App; 
+
+ReactDOM.render(<App />, document.querySelector('#react-root'))
