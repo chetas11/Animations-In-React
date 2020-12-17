@@ -31853,6 +31853,10 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var App = function App() {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Component1, null), /*#__PURE__*/_react.default.createElement(Component2, null));
+};
+
+var Component1 = function Component1() {
   return /*#__PURE__*/_react.default.createElement(_renderprops.Spring, {
     from: {
       opacity: 0,
@@ -31867,14 +31871,94 @@ var App = function App() {
       style: props
     }, /*#__PURE__*/_react.default.createElement("div", {
       style: c1Style
-    }, /*#__PURE__*/_react.default.createElement("h1", null, "Component1"), /*#__PURE__*/_react.default.createElement("p", null, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 1")));
+    }, /*#__PURE__*/_react.default.createElement("h1", null, "Component1"), /*#__PURE__*/_react.default.createElement("p", null, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 1"), /*#__PURE__*/_react.default.createElement(_renderprops.Spring, {
+      from: {
+        number: 0
+      },
+      to: {
+        number: 10
+      },
+      config: {
+        duration: 10000
+      }
+    }, function (props) {
+      return /*#__PURE__*/_react.default.createElement("div", {
+        style: props
+      }, /*#__PURE__*/_react.default.createElement("h1", {
+        style: counter
+      }, props.number.toFixed()));
+    })));
   });
 };
+
+var Component2 = function Component2() {
+  return /*#__PURE__*/_react.default.createElement(_renderprops.Spring, {
+    from: {
+      opacity: 0
+    },
+    to: {
+      opacity: 1
+    },
+    config: {
+      delay: 1000,
+      duration: 1000
+    }
+  }, function (props) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      style: props
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      style: c2Style
+    }, /*#__PURE__*/_react.default.createElement("h1", null, "Component1"), /*#__PURE__*/_react.default.createElement("p", null, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 1"), /*#__PURE__*/_react.default.createElement("button", {
+      style: btn
+    }, "Toggle Component3")));
+  });
+}; // const Component3 = () => {
+//     return(
+//     <Spring
+//         from={{ opacity: 0 }}
+//         to={{ opacity: 1 }}
+//         config = {{ delay:1000, duration:1000 }}
+//         >
+//         {props => <div style={props}>
+//             <div style={c3Style}>
+//                 <h1>Component1</h1>
+//                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 1</p>
+//             </div>  
+//         </div>}
+//     </Spring>
+//     )
+// }
+
 
 var c1Style = {
   background: 'steelblue',
   color: 'white',
   padding: '1.5rem'
+};
+var c2Style = {
+  background: 'slateblue',
+  color: 'white',
+  padding: '1.5rem'
+}; // const c3Style = {
+//     background: 'skyblue',
+//     color: 'white',
+//     padding: '1.5rem'
+// }
+
+var btn = {
+  background: '#333',
+  color: '#fff',
+  padding: '1rem 2rem',
+  border: 'none',
+  textTransform: 'uppercase',
+  margin: '15px 0'
+};
+var counter = {
+  background: '#333',
+  textAlign: 'center',
+  width: '100px',
+  borderRadius: '50%',
+  margin: '1rem auto'
 };
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(App, null), document.querySelector('#react-root'));
@@ -31906,7 +31990,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50279" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50913" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
